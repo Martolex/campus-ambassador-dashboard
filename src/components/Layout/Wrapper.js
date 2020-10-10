@@ -1,21 +1,12 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
-import { Container, Col, Row, ListGroup } from "react-bootstrap";
+
+import { Container, Col, Row } from "react-bootstrap";
 import "../../styles/Layout/Wrapper.scss";
 import DataContainer from "./DataContainer";
 import SideBar from "./SideBar";
 
-import { MdMenu, MdHome, MdPerson } from "react-icons/md";
-const sideBarItems = [
-  {
-    title: "home",
-    path: "/home",
-    exact: true,
-    icon: { component: MdHome, size: 28 },
-    component: () => <h1>Home</h1>,
-  },
-];
+import { MdMenu } from "react-icons/md";
+
 const Wrapper = (props) => {
   const [menuExpanded, setMenuExpanded] = useState(false);
   return (
@@ -43,32 +34,21 @@ const Wrapper = (props) => {
           <h5>STUDENT AMBASSADOR</h5>
         </Col>
       </Row>
-      <Row style={{ flex: "auto" }}>
+      <Row className="data-container" style={{ flex: "auto" }}>
         <Col
           md={2}
           xs={menuExpanded ? 7 : 2}
           style={{
-            width: "200px",
-            height: "92vh",
             position: menuExpanded ? "absolute" : "relative",
-            zIndex: 10,
           }}
-          className=" sidebar bg-dark text-light"
+          className={` sidebar bg-dark text-light  ${
+            menuExpanded ? "d-xs-flex" : "d-none"
+          } d-md-flex`}
         >
-          <SideBar
-            items={sideBarItems}
-            isOpen={menuExpanded}
-            closeMenu={() => setMenuExpanded(false)}
-          />
+          <SideBar closeMenu={() => setMenuExpanded(false)} />
         </Col>
-        <Col
-          style={{
-            height: "92vh",
-            overflowY: "scroll",
-          }}
-          xs={{ offset: menuExpanded ? 2 : 0 }}
-        >
-          <DataContainer items={sideBarItems} />
+        <Col className="data-div">
+          <DataContainer />
         </Col>
       </Row>
     </Container>

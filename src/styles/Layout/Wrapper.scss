@@ -13,26 +13,36 @@
   }
 }
 
+.data-container {
+  transition: 500ms ease all;
+
+  .data-div {
+    height: 92vh;
+    overflow-y: scroll;
+  }
+}
+
 .sidebar {
+  transition: 500ms ease all;
+  width: 200px !important;
+  height: 92vh;
+  z-index: 10;
   width: 100px;
   .sidebar-container {
     margin-top: 30px;
+    width: 100%;
     .sidebar-item {
       background-color: transparent;
-      // height: 60px;
       cursor: pointer;
       padding: 5px;
-      // line-height: 35px;
       border-color: #ffffff;
       .item {
         text-transform: uppercase;
         box-sizing: border-box;
-        // width: 100%;
         font-size: 1.1em;
         height: 50px;
         line-height: 40px;
-        // padding: 5px;
-        //   font-weight: bold;
+
         border-radius: 5px;
         .text {
           display: flex;
@@ -42,7 +52,6 @@
       .clicked {
         background-color: #ffffff;
         color: $dark;
-        //   margin: 2px;
       }
     }
   }

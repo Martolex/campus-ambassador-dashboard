@@ -1,10 +1,10 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-import { Switch, Router, Route, Redirect } from "react-router";
+import { Switch, Route, Redirect } from "react-router";
 import { withRouter } from "react-router";
 import PrivateRoute from "../../utils/PrivateRoute";
 import Login from "../content/Auth/Login";
-const DataContainer = ({ items }) => {
+import items from "./Routes";
+const DataContainer = (props) => {
   const genPaths = (item) => {
     const Component = withRouter(item.component);
     const routes = [];
