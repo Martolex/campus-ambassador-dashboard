@@ -1,6 +1,7 @@
 import { MdHome } from "react-icons/md";
 
 import React from "react";
+import LeadsDashboard from "../content/Leads/LeadsDashboard";
 
 const routes = [
   {
@@ -9,6 +10,13 @@ const routes = [
     exact: true,
     icon: { component: MdHome, size: 28 },
     component: () => <h1>Home</h1>,
+  },
+  {
+    title: "leads",
+    path: "/leads",
+    exact: true,
+    icon: { component: MdHome, size: 28 },
+    component: LeadsDashboard,
   },
 ];
 

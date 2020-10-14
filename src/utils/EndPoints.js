@@ -48,4 +48,11 @@ export const UsersApi = {
   getUserCart: (id) => `${adminApi}/users/${id}/cart`,
 };
 
-export const loginApi = `${backendApi}auth/adminSignIn`;
+const ambassadorApi = `${backendApi}ambassador`;
+
+export const loginApi = `${backendApi}auth/ambassadorSignIn`;
+export const LeadsApi = {
+  getLeads: `${ambassadorApi}/leads`,
+  saveLeads: `${ambassadorApi}/leads/newLead`,
+};
+export const collegeApi = `${ambassadorApi}/colleges`;
