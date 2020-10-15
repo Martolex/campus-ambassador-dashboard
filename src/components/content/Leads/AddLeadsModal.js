@@ -79,7 +79,7 @@ const AddLeadsModal = (props) => {
       setData(initialState);
       setValidated(false);
     }
-  }, [props.show, initialState]);
+  }, [props.show]);
   return (
     <Modal size="lg" centered show={props.show} onHide={props.handleClose}>
       <Modal.Header closeButton>
