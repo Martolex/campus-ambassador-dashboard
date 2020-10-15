@@ -2,11 +2,6 @@ import { backendApi } from "../config";
 
 export const adminApi = `${backendApi}admin`;
 
-export const ordersApi = {
-  getOrders: `${adminApi}/orders`,
-  orderDetails: (id) => `${adminApi}/orders/${id}`,
-};
-
 export const notFoundBooks = `${adminApi}/not-found-books`;
 
 export const returnsApi = {
@@ -55,4 +50,9 @@ export const LeadsApi = {
   getLeads: `${ambassadorApi}/leads`,
   saveLeads: `${ambassadorApi}/leads/newLead`,
 };
+
+export const ordersApi = {
+  getOrders: `${ambassadorApi}/orders`,
+};
+
 export const collegeApi = `${ambassadorApi}/colleges`;
