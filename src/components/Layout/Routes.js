@@ -6,14 +6,14 @@ import OrdersDashboard from "../content/orders/OrdersDashboard";
 
 import { BiPackage } from "react-icons/bi";
 import { FaUsers } from "react-icons/fa";
-const home = () => <h1>Home</h1>;
+import StatsDashboard from "../content/Home/StatsDashboard";
 const routes = [
   {
     title: "home",
     path: "/home",
     exact: true,
     icon: { component: MdHome, size: 28 },
-    component: () => home,
+    component: StatsDashboard,
   },
   {
     title: "leads",
