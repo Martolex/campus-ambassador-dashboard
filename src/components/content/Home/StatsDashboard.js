@@ -4,6 +4,7 @@ import { get } from "../../../utils/requests";
 import { statsApi } from "../../../utils/EndPoints";
 import StatCard from "./StatCard";
 import Line from "../../utils/Charts/Line";
+import { connect } from "react-redux";
 
 const StatsDashboard = (props) => {
   const [stats, setStats] = useState(undefined);
@@ -25,7 +26,12 @@ const StatsDashboard = (props) => {
 
   return stats ? (
     <Container style={{ height: "93%" }} className="mt-4" fluid>
-      <Row style={{ height: "100%" }} className="mb-2">
+      <Row>
+        <Col>
+          <h2>Hello, {props.userName}!</h2>
+        </Col>
+      </Row>
+      <Row>
         <Col className="my-auto" md={{ span: 5, order: 1 }} xs={{ order: 2 }}>
           <Row className="my-3">
             <Col>
@@ -98,4 +104,6 @@ const StatsDashboard = (props) => {
   ) : null;
 };
 
-export default StatsDashboard;
+const mapStateToProps = (state) => ({ userName: state.user.profile.name });
+
+export default connect(mapStateToProps)(StatsDashboard);

@@ -8,7 +8,7 @@ const StatCard = ({ title, value }) => {
         <Container fluid>
           <Row>
             <Col>
-              <h1 className="text-center">{value}</h1>
+              <h3 className="text-center">{value}</h3>
             </Col>
           </Row>
         </Container>
