@@ -12,6 +12,8 @@ const login = (data) => ({
   payload: data,
 });
 
+export const logout = () => ({ type: LOGOUT });
+
 const invalidLogin = (error) => ({
   type: LOGIN_FAILED,
   payload: error,

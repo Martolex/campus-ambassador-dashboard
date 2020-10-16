@@ -4,9 +4,24 @@ import React from "react";
 import LeadsDashboard from "../content/Leads/LeadsDashboard";
 import OrdersDashboard from "../content/orders/OrdersDashboard";
 
-import { BiPackage } from "react-icons/bi";
+import { BiLogOut, BiPackage } from "react-icons/bi";
 import { FaUsers } from "react-icons/fa";
 import StatsDashboard from "../content/Home/StatsDashboard";
+
+import { logout } from "../../redux/actions/authActions";
+import { Redirect, useHistory } from "react-router";
+const { store } = require("../../redux");
+
+const Logout = (props) => {
+  const confirm = window.confirm("are you sure you want to logout ? ");
+  if (confirm) {
+    store.dispatch(logout());
+    return <Redirect to="/" />;
+  } else {
+    props.history.goBack();
+    return null;
+  }
+};
 const routes = [
   {
     title: "home",
@@ -28,6 +43,13 @@ const routes = [
     exact: true,
     icon: { component: BiPackage, size: 28 },
     component: OrdersDashboard,
+  },
+  {
+    title: "logout",
+    path: "/logout",
+    exact: true,
+    icon: { component: BiLogOut, size: 28 },
+    component: Logout,
   },
 ];
 
