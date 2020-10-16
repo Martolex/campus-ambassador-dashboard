@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Container, Row, Table } from "react-bootstrap";
+import { Col, Container, Nav, Row, Table } from "react-bootstrap";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { get } from "../../../utils/requests";
 import { ordersApi } from "../../../utils/EndPoints";
@@ -16,11 +16,42 @@ const OrdersDashboard = () => {
     }
   }
   React.useEffect(() => {
-    getData(ordersApi.getOrders);
+    getData(ordersApi.getLeadOrders);
   }, []);
+
+  function getOrderByType(type) {
+    if (type == "LEADS") {
+      getData(ordersApi.getLeadOrders);
+    } else if (type == "REFERRAL") {
+      getData(ordersApi.getReferralCodeOrders);
+    }
+  }
 
   return (
     <Container className="mt-4" fluid>
+      <Row className="mb-3">
+        <Col
+          style={{ border: "1px solid #ddd", borderRadius: 5 }}
+          className="py-2 mx-3"
+        >
+          <Nav
+            onSelect={getOrderByType}
+            variant="pills"
+            defaultActiveKey="LEADS"
+          >
+            <Nav.Item>
+              <Nav.Link className="text-dark" eventKey="LEADS">
+                FROM LEADS
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link className="text-dark" eventKey="REFERRAL">
+                FROM REFERRAL CODE
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Col>
+      </Row>
       <Row className="justify-content-center">
         <Col>
           <div style={{ border: "1px solid #eee" }}>
@@ -53,9 +84,7 @@ const OrdersDashboard = () => {
               ) : (
                 <tr>
                   <td colSpan="100%">
-                    <h2 className="w-100 text-center display-4">
-                      No subscribers
-                    </h2>
+                    <h2 className="w-100 text-center display-4">No Orders</h2>
                   </td>
                 </tr>
               )}

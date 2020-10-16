@@ -77,9 +77,7 @@ const LeadsDashboard = (props) => {
               ) : (
                 <tr>
                   <td colspan="100%">
-                    <h2 className="w-100 text-center display-4">
-                      No subscribers
-                    </h2>
+                    <h2 className="w-100 text-center display-4">No Leads</h2>
                   </td>
                 </tr>
               )}

@@ -9,7 +9,8 @@ export const LeadsApi = {
 };
 
 export const ordersApi = {
-  getOrders: `${ambassadorApi}/orders`,
+  getReferralCodeOrders: `${ambassadorApi}/orders/couponCode`,
+  getLeadOrders: `${ambassadorApi}/orders/leads`,
 };
 
 export const statsApi = `${ambassadorApi}/stats`;
