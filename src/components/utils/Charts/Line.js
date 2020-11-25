@@ -16,6 +16,7 @@ const LineChart = ({ labels, data, chartName }) => {
               position: "left",
               ticks: {
                 stepSize: (Math.max(...data) - Math.min(...data)) / 5,
+                beginAtZero: true,
                 // display: false,
               },
 

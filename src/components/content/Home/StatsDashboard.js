@@ -62,13 +62,13 @@ const StatsDashboard = (props) => {
               <Col>
                 <StatCard
                   title="total sales"
-                  value={`₹${stats.stats.totalSales}`}
+                  value={`₹${stats.stats.totalSales || 0}`}
                 />
               </Col>
               <Col>
                 <StatCard
                   title="Total Earning"
-                  value={`₹${stats.stats.totalEarning}`}
+                  value={`₹${stats.stats.totalEarning || 0}`}
                 />
               </Col>
             </Row>
@@ -76,13 +76,13 @@ const StatsDashboard = (props) => {
               <Col>
                 <StatCard
                   title="sale this month"
-                  value={`₹${stats.stats.oneMonthSales}`}
+                  value={`₹${stats.stats.oneMonthSales || 0}`}
                 />
               </Col>
               <Col>
                 <StatCard
                   title="earning this month"
-                  value={`₹${stats.stats.oneMonthEarning}`}
+                  value={`₹${stats.stats.oneMonthEarning || 0}`}
                 />
               </Col>
             </Row>
@@ -90,11 +90,11 @@ const StatsDashboard = (props) => {
               <Col md={6} xs={12}>
                 <StatCard
                   title="total Books Sold"
-                  value={stats.stats.booksSold}
+                  value={stats.stats.booksSold || 0}
                 />
               </Col>
               <Col>
-                <StatCard title="total leads" value={stats.stats.leads} />
+                <StatCard title="total leads" value={stats.stats.leads || 0} />
               </Col>
             </Row>
           </Container>
