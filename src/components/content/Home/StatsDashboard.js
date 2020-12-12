@@ -51,7 +51,7 @@ const StatsDashboard = (props) => {
                 className="mb-2"
                 labels={stats.chartData.leads.map((item) => item.label)}
                 data={stats.chartData.leads.map((item) => item.count || 0)}
-                chartName="Earnings"
+                chartName="Leads Added"
               />
             </Col>
           </Row>
