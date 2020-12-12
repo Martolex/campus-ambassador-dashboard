@@ -39,7 +39,6 @@ const LeadsDashboard = (props) => {
           >
             ADD LEADS
           </Button>
-          <Button variant="info">SEND PROMO EMAIL</Button>
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -66,9 +65,6 @@ const LeadsDashboard = (props) => {
                       <td className="text-center">
                         <Button className="mr-2" variant="info">
                           <FaPhone size="22" />
-                        </Button>
-                        <Button variant="info">
-                          <MdEmail size="25" />
                         </Button>
                       </td>
                     </tr>
