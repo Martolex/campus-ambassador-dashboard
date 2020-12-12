@@ -5,7 +5,8 @@ import { statsApi } from "../../../utils/EndPoints";
 import StatCard from "./StatCard";
 import Line from "../../utils/Charts/Line";
 import { connect } from "react-redux";
-
+import { MdContentCopy } from "react-icons/md";
+import "../../../styles/content/Home/StatsDashboard.scss";
 const StatsDashboard = (props) => {
   const [stats, setStats] = useState(undefined);
   const [leadsChartData, setLeadsChartData] = useState([]);
@@ -28,8 +29,21 @@ const StatsDashboard = (props) => {
     <Container style={{ height: "93%" }} className="mt-4" fluid>
       <Row>
         <Col>
-          <h2>Hello, {props.userName}!</h2>
+          <h2>Hello, {props.user.name}!</h2>
         </Col>
+        {props.user.referralCode && (
+          <Col className="align-items-center" md={4}>
+            <Row className="align-items-center">
+              <Col xs="auto" md="auto">
+                REFFERAL CODE:
+              </Col>
+              <Col xs="auto" md="auto" className="ref-code">
+                {props.user.referralCode}
+                <MdContentCopy size={22} />
+              </Col>
+            </Row>
+          </Col>
+        )}
       </Row>
       <Row>
         <Col className="my-auto" md={{ span: 5, order: 1 }} xs={{ order: 2 }}>
@@ -104,6 +118,8 @@ const StatsDashboard = (props) => {
   ) : null;
 };
 
-const mapStateToProps = (state) => ({ userName: state.user.profile.name });
+const mapStateToProps = ({ user: { profile } }) => ({
+  user: { name: profile.name, referralCode: profile.referralCode },
+});
 
 export default connect(mapStateToProps)(StatsDashboard);
