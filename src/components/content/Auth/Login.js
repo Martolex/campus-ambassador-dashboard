@@ -11,13 +11,13 @@ import {
 import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { loginUser } from "../../../redux/actions/authActions";
+import OverlayLoader from "../../utils/Loader/OverlayLoader";
 
 const Login = (props) => {
   const history = useHistory();
   const [creds, setCreds] = useState({ email: "", password: "" });
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
-    console.log("here");
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -39,6 +39,7 @@ const Login = (props) => {
   }, [props.auth]);
   return (
     <Container style={{ height: "95%" }} className="mt-4 mb-0" fluid>
+      {props.isLoading && <OverlayLoader />}
       <Row className="justify-content-center align-items-center h-100">
         <Col md={5}>
           <Card>

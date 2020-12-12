@@ -26,7 +26,10 @@ export const loginUser = (email, password) => async (dispatch) => {
     dispatch(login(user));
     dispatch(finishLoading("auth"));
   } catch (err) {
-    console.error(err);
-    dispatch(invalidLogin(err));
+    if (typeof err === "string") {
+      dispatch(invalidLogin(err));
+    } else {
+      dispatch(invalidLogin("Something went wrong. Please Try again Later"));
+    }
   }
 };
