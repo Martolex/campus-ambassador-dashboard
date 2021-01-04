@@ -65,7 +65,6 @@ const AddLeadsModal = (props) => {
       })),
     };
     console.log(postData.leads);
-    return;
     try {
       const [res] = await post(LeadsApi.saveLeads, true, postData);
       if (res.errors?.duplicates?.length > 0) {
