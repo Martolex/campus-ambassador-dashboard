@@ -51,7 +51,6 @@ const LeadsDashboard = (props) => {
                   <th className="text-center">EMAIL</th>
                   <th className="text-center">PHONE NO</th>
                   <th className="text-center">COLLEGE</th>
-                  <th className="text-center">ACTIONS</th>
                 </tr>
               </thead>
               {leads.length > 0 ? (
@@ -62,11 +61,6 @@ const LeadsDashboard = (props) => {
                       <td className="text-center">{lead.email}</td>
                       <td className="text-center">{lead.phoneNo}</td>
                       <td className="text-center">{lead.college.name}</td>
-                      <td className="text-center">
-                        <Button className="mr-2" variant="info">
-                          <FaPhone size="22" />
-                        </Button>
-                      </td>
                     </tr>
                   ))}
                 </tbody>
